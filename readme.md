@@ -1,6 +1,4 @@
-<snippet>
-  <content><![CDATA[
-# ${1:BitcoinUptime}
+# BitcoinUptime
 A website that continuously calculates bitcoin uptime statistics
 ## Installation
 TODO: Describe the installation process
@@ -12,11 +10,8 @@ TODO: Write usage instructions
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-## History
-TODO: Write history
-## Credits
-TODO: Write credits
 ## License
+
 MIT License
 
 Copyright (c) [2016] [BitcoinUptime]
@@ -38,6 +33,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
