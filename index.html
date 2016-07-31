@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>bitcoin-uptime</title>
+<meta name="description" content="bitcoin network reliability">
+<meta name="keywords" content="bitcoin uptime btc bitcoin network reliability decentralized currency cryptocurrency digital-currency virtual-currency cryptography blockchain block crypto">
+
+<body>
+
+&nbsp;&nbsp;
+
+<center>
+<h2>The Bitcoin network has been functional for</h2><h1 id="demo"></h1><h2>of the time since its inception on Jan 3 2009 02:54:25 GMT</h2>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><b>Donations:</b> 17QxQkoVA9A8ThvkMcBwSxpYdWwYRf6dbv<br/>
+
+</center>
+
+<script>
+function update() {
+var timenow = new Date().getTime() / 1000;
+//current time in seconds from the unix epoch start
+
+var downtime= (6*60*60+20*60);
+//6:20 of downtime on 3/12/2013 
+//converted to seconds
+//source: http://vincesamios.com/bitcoins/accidental-hardfork-the-resilience-of-a-fledgling-bitcoin
+
+var totaltime= timenow-1230951265;
+//where 1230951265 is the number of seconds since the unix epoch start at the time of the first block on Jan 3 2009 02:54:25 GMT
+
+var uptime = 100*(totaltime-downtime)/totaltime;
+var printme = uptime.toFixed(9).toString().concat(" %");
+
+document.getElementById("demo").innerHTML = printme;
+}
+
+update();
+setInterval(update, 200);
+</script>
+
+
+
+</body>
