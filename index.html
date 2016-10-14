@@ -2,52 +2,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+  <title>bitcoin-uptime</title>
+  <meta name="description" content="bitcoin network reliability">
+  <meta name="keywords" content="bitcoin uptime btc bitcoin network reliability decentralized currency cryptocurrency digital-currency virtual-currency cryptography blockchain block crypto">
+  
+  <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+  <script src="scripts/jquery-3.1.1.min.js"></script>
+  <script src="semantic/semantic.min.js"></script>
 
-<title>bitcoin-uptime</title>
-<meta name="description" content="bitcoin network reliability">
-<meta name="keywords" content="bitcoin uptime btc bitcoin network reliability decentralized currency cryptocurrency digital-currency virtual-currency cryptography blockchain block crypto">
+</head>
 
 <body>
+  <div class="ui container" style="padding-top: 2em;">
+    <center>
+      <h2>The Bitcoin network has been functional for</h2>
 
-&nbsp;&nbsp;
+      <div class="ui statistic">
+        <h1 id="demo" class="value"></h1>
+      </div>
 
-<center>
-<h2>The Bitcoin network has been functional for</h2><h1 id="demo"></h1><h2>of the time since its inception on Jan 3 2009 02:54:25 GMT</h2>
+      <h2>of the time since its inception on Jan 3 2009 02:54:25 GMT</h2>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-<b><a href = "http://www.apache.org/foundation/contributing.html" >Donations:</a></b>1BtjAzWGLyAavUkbw3QsyzzNDKdtPXk95D
+      <h3><a href="http://www.apache.org/foundation/contributing.html">Contributions</a></h3>
 
-<br/>
+      <h4>Bitcoin</h4>
+      <a href="bitcoin:1BtjAzWGLyAavUkbw3QsyzzNDKdtPXk95D" class="ui labeled icon button"><i class="ui bitcoin icon"></i>1BtjAzWGLyAavUkbw3QsyzzNDKdtPXk95D</a>
 
-<b><a href = "https://github.com/findbl0k/bitcoinUptime">Fork me! </a></b>
+      <h4>Code</h4>
+      <a href="https://github.com/findbl0k/bitcoinUptime" class="ui labeled icon button"><i class="ui fork icon"></i>Fork me!</a>
+    </center>
+  </div>
 
-</center>
+  <script>
+    function update() {
+    var timenow = new Date().getTime() / 1000;
+    //current time in seconds from the unix epoch start
 
-<script>
-function update() {
-var timenow = new Date().getTime() / 1000;
-//current time in seconds from the unix epoch start
+    var downtime = (6*60*60+20*60);
+    //6:20 of downtime on 3/12/2013 
+    //converted to seconds
+    //source: http://vincesamios.com/bitcoins/accidental-hardfork-the-resilience-of-a-fledgling-bitcoin
 
-var downtime= (6*60*60+20*60);
-//6:20 of downtime on 3/12/2013 
-//converted to seconds
-//source: http://vincesamios.com/bitcoins/accidental-hardfork-the-resilience-of-a-fledgling-bitcoin
+    var totaltime = timenow-1230951265;
+    //where 1230951265 is the number of seconds since the unix epoch start at the time of the first block on Jan 3 2009 02:54:25 GMT
 
-var totaltime= timenow-1230951265;
-//where 1230951265 is the number of seconds since the unix epoch start at the time of the first block on Jan 3 2009 02:54:25 GMT
+    var uptime = 100*(totaltime-downtime)/totaltime;
+    var printme = uptime.toFixed(9).toString().concat(" %");
 
-var uptime = 100*(totaltime-downtime)/totaltime;
-var printme = uptime.toFixed(9).toString().concat(" %");
+    document.getElementById("demo").innerHTML = printme;
+    }
 
-document.getElementById("demo").innerHTML = printme;
-}
-
-update();
-setInterval(update, 200);
-</script>
-
-
-
+    update();
+    setInterval(update, 200);
+  </script>
 </body>
+</html>
